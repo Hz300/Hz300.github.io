@@ -1,0 +1,126 @@
+    :root {
+      --primary-bg: #0f0f0f;
+      --text-light: #e8d8c9;
+      --accent: #f3701e;
+      --muted-blue: #4b607f;
+      --glow-blue: #4fc3f7;
+    }
+
+    
+body {
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  background-image: url('assets/img/bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+    header {
+      padding: 2rem;
+       background-color: rgba(15, 15, 15, 0); /* semi-transparent */
+  backdrop-filter: blur(0px) saturate(10%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);      color: var(--text-light);
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      border-bottom: 2px solid var(--accent);
+      box-shadow: 0 0 20px var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: var(--text-light);
+      text-shadow: 0 0 8px var(--accent);
+    }
+
+    p.slogan {
+      margin: 0.5rem 0 0;
+      font-size: 1rem;
+      color: var(--accent);
+      text-shadow: 0 0 4px var(--accent);
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .card {
+	background-color: rgba(15, 15, 15, 0.6); /* semi-transparent */
+	backdrop-filter: blur(0px) saturate(10%);
+     -webkit-backdrop-filter: blur(10px) saturate(150%);      border: 2px solid var(--muted-blue);
+      border-left: 5px solid var(--accent);
+      padding: 1.5rem;
+      box-shadow: 0 0 10px rgba(76, 110, 138, 0.2);
+      transition: all 0.3s ease-in-out;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--glow-blue);
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 0 20px var(--glow-blue), 0 0 40px var(--glow-blue);
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before {
+      opacity: 0.3;
+    }
+
+    .card:hover {
+      background-color: #1e1e1e;
+      transform: translateY(-3px);
+      box-shadow: 0 0 12px var(--accent), 0 0 30px var(--muted-blue);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-shadow: 0 0 6px var(--accent);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted-blue);
+      background-color: #111;
+      border-top: 1px solid var(--muted-blue);
+    }
+
+    .separator {
+	    height: 24em;
+	    width: 100%;
+	    margin: 0;
+    }
+
+    /* Optional: subtle flicker animation */
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.5;
+      }
+    }
+
+    .card:hover h2 {
+      animation: flicker 0.5s infinite;
+    }
+
